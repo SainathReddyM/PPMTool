@@ -1,4 +1,4 @@
-package com.msr.PPMTool.Exceptions;
+package com.msr.PPMTool.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +10,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @RestController
 @ControllerAdvice
-public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+public class CustomResponseEntityExceptionHandler2 extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler
-    public final ResponseEntity<?> handleProjectIdException(ProjectIDException ex, WebRequest req){
-                ProjectIDExceptionResponse exp = new ProjectIDExceptionResponse(ex.getMessage());
-                return new ResponseEntity(exp, HttpStatus.BAD_REQUEST);
+    public final ResponseEntity<?> projectIdExceptionHandler(ProjectIdException ex, WebRequest wr){
+              ProjectIdExceptionResponse res= new ProjectIdExceptionResponse(ex.getMessage());
+              return new ResponseEntity(res, HttpStatus.BAD_REQUEST);
     }
 }
